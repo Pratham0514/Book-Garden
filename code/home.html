@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Document</title>
+  <link rel="stylesheet" href="./../css/Home.css">
+  <link rel="stylesheet" href="./../css/navbar.css">
+  <link rel="stylesheet" href="./../css/futtor.css">
+</head>
+<body class="body">
+
+  <div>
+    <nav class="navbar">
+      <div class="logo">📚 BOOKS_GARDEN 📚</div>
+      <ul class="nav-links">
+        <li><a href="home.html" class="active">Home</a></li>
+        <li><a href="./Catalog.html">Catalog</a></li>
+        <li><a href="./About.html">About</a></li>
+        <li><a href="./Contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="welcome">
+    <i class="fa-solid fa-hands-praying fa-2xl welcome" style="padding-right: 1.5%;"></i>
+    <h1 id="welcomeText"> </h1>
+    <i class="fa-solid fa-hands-praying fa-2xl welcome" style="padding-left: 1.5%;"></i>
+  </div>
+
+  <div class="container">
+    <div class="qq">
+      <i id="welcome-msg" class="welcome-msg"></i> 
+      <i class="text1">
+        Where every page is a new Adventure
+      </i>
+      <i>
+        From classics to contemporary, our bookstore offers a wide selection of books to suit every taste and interest.
+        Start exploring our shelves today and uncover your next literary gem.
+      </i>
+    </div>
+
+    <div class="ig">
+      <button onclick="back()" class="butt"><</button>
+      <img src="./../img/img4.jpg" id="img">
+      <button onclick="next()"class="butt">></button>
+    </div>
+  </div>
+
+  <div class="futtor">
+  <h3 class="futtor-headline">© 2025 BOOKS_GARDEN. All rights reserved.</h3>
+  <ul class="futtor-links">
+    <li><a href="home.html" >Home</a></li>
+    <li><a href="./Catalog.html">Catalog</a></li>
+    <li><a href="./About.html">About</a></li>
+    <li><a href="./Contact.html">Contact</a></li>
+  </ul>
+</div>
+
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("name");
+    document.getElementById("welcomeText").innerText = "Welcome " + name;
+    document.getElementById("welcome-msg").innerHTML = "Start Your reading journey today&nbsp" + name;
+  </script>
+
+  <script>
+    const imgarray = [
+      "./../img/img1 (1).jpg",
+      "./../img/img2.jpg",
+      "./../img/img3.jpg",
+      "./../img/img4.jpg"
+    ];
+    let imgindex = 0;
+    const imgmove = document.getElementById("img");
+
+    function back() {
+      imgindex = (imgindex === 0) ? imgarray.length - 1 : imgindex - 1;
+      imgmove.src = imgarray[imgindex];
+    }
+
+    function next() {
+      imgindex = (imgindex === imgarray.length - 1) ? 0 : imgindex + 1;
+      imgmove.src = imgarray[imgindex];
+    }
+  </script>
+
+  <script src="https://kit.fontawesome.com/29829fba35.js" crossorigin="anonymous"></script>
+</body>
+</html>

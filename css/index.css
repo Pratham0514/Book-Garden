@@ -1,0 +1,79 @@
+ body {
+      margin: 0;
+      background: #141f3d;
+      overflow: hidden;
+      cursor: none;
+      font-family: Arial, sans-serif;
+    }
+.trail {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #E0C58F;
+  box-shadow: 0 0 8px #4edb6f, 0 0 16px #0b82b1, 0 0 32px #112250;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+    .container {
+      position: absolute;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      padding: 32px 40px;
+      border-radius: 16px;
+      box-shadow: 0 0 24px #00ffff;
+      z-index: 10;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 32px;
+      margin-top:60px;
+    }
+    .image-section img {
+      width: 250px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px #00ffff;
+    }
+    .form-section h2 {
+      margin: 0 0 8px 0;
+      color: #E0C58F;
+      text-align: center;
+    }
+    .form-section h3 {
+      margin: 0 0 16px 0;
+      text-align: center;
+      color: #E0C58F;
+    }
+    .form-section form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .form-section input {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      background: #F5F0E9;
+      color: #0a0a0a;
+      box-shadow: 0 0 8px #00ffff44;
+    }
+    .form-section button.butt {
+      background: #00ffff;
+      color: #222;
+      cursor: pointer;
+      font-weight: bold;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 0 8px #00ffff;
+      border: none;
+      font-size: 1rem;
+      margin-top: 8px;
+    }
+    .form-section button.butt:hover {
+      background: #E0C58F;
+      color: #112250;
+    }

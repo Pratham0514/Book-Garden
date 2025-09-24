@@ -1,0 +1,65 @@
+ .futtor {
+  background-color: #112250;
+  color: white;
+  padding: 15px 0;
+  position: relative;
+  width: 100%;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+.futtor-headline {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.futtor-links {
+  list-style: none;       
+  display: flex;
+  flex-direction: column;  
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+.futtor-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.futtor-links li a:hover {
+  color: #E0C58F;
+}
+.futtor {
+  background-color: #112250;
+  color: white;
+  padding: 15px 0;
+  position: relative;
+  width: 100%;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+.futtor-headline {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.futtor-links {
+  list-style: none;        
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+.futtor-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+

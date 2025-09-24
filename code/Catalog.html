@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books Garden Catalog</title>
+    <link rel="stylesheet" href="./../css/Catalog.css">
+    <link rel="stylesheet" href="./../css/navbar.css">
+    <link rel="stylesheet" href="./../css/futtor.css">
+</head>
+<body class="body">
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="logo" aria-label="Books Garden Logo">📚 BOOKS_GARDEN 📚</div>
+        <ul class="nav-links">
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./Catalog.html" class="active">Catalog</a></li>
+            <li><a href="./About.html">About</a></li>
+            <li><a href="./Contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="main-container" class="main-container" aria-live="polite"></section>
+
+        <form id="add-card-form" autocomplete="off" aria-label="Add a new book">
+            <input type="text" id="name" placeholder="Book Name" required aria-label="Book Name" aria-required="true">
+            <input type="text" id="category" placeholder="Category" required aria-label="Category" aria-required="true">
+            <input type="number" id="price" placeholder="Price" min="0" required aria-label="Price" aria-required="true">
+            <input type="url" id="image" placeholder="Image URL" required aria-label="Image URL" aria-required="true">
+            <input type="text" id="description" placeholder="Description" required aria-label="Description" aria-required="true">
+            <input type="text" id="author" placeholder="Author" required aria-label="Author" aria-required="true">
+            <button type="submit">Add Book</button>
+        </form>
+    </main>
+
+    <script>
+        const defaultBooks = [
+            {
+                name: "Atomic Habits",
+                category: "Self-help",
+                price: 350,
+                image: "./../images/Atomic-Habits.png",
+                description: "Tiny changes, remarkable results.",
+                author: "James Clear"
+            },
+            {
+                name: "The Alchemist",
+                category: "Fiction",
+                price: 400,
+                image: "./../images/The-Alchemist.jpg",
+                description: "A journey of self-discovery, dreams, destiny, journey.",
+                author: "Paulo Coelho"
+            },
+            {
+                name: "Practicing Mind",
+                category: "Self-help",
+                price: 299,
+                image: "./../images/Practicing-mind.jpg",
+                description: "A book about mindfulness and focus.",
+                author: "Emily Davis"
+            },
+        ];
+
+        function getBooks() {
+            try {
+                const stored = localStorage.getItem("productCards");
+                if (stored) {
+                    const parsed = JSON.parse(stored);
+                    if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+                }
+            } catch {}
+            localStorage.setItem("productCards", JSON.stringify(defaultBooks));
+            return [...defaultBooks];
+        }
+
+        let books = getBooks();
+
+        function saveBooks() {
+            localStorage.setItem("productCards", JSON.stringify(books));
+        }
+
+        function renderBooks() {
+            const container = document.getElementById("main-container");
+            if (!books.length) {
+                container.innerHTML = `<p style="margin:32px;color:#3C507B;">No books in catalog.</p>`;
+                return;
+            }
+            container.innerHTML = books.map((book, idx) => `
+                <div class="card" tabindex="0" aria-label="Book card: ${book.name}">
+                    <h2>${book.name}</h2>
+                    <p>Category: ${book.category}</p>
+                    <p>Price: ₹${book.price}</p>
+                    <img src="${book.image}" alt="${book.name}">
+                    <p>Description: ${book.description}</p>
+                    <p>Author: ${book.author}</p>
+                    <button class="delete-btn" type="button" onclick="deleteBook(${idx})" aria-label="Delete ${book.name}">Delete</button>
+                    <button class="buy-btn" type="button" onclick="buyBook('${book.name}')" aria-label="Buy ${book.name}">Buy</button>
+                </div>
+            `).join("");
+        }
+
+        window.deleteBook = function(index) {
+            books.splice(index, 1);
+            saveBooks();
+            renderBooks();
+        };
+
+        window.buyBook = function(bookName) {
+            alert(`Thank you for buying "${bookName}"!`);
+        };
+
+        document.getElementById("add-card-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const name = document.getElementById("name").value.trim();
+            const category = document.getElementById("category").value.trim();
+            const price = document.getElementById("price").value;
+            const image = document.getElementById("image").value.trim();
+            const description = document.getElementById("description").value.trim();
+            const author = document.getElementById("author").value.trim();
+
+            if (!name || !category || !price || !image || !description || !author) return;
+
+            books.push({
+                name,
+                category,
+                price: parseFloat(price),
+                image,
+                description,
+                author
+            });
+            saveBooks();
+            renderBooks();
+            e.target.reset();
+        });
+
+        renderBooks();
+    </script>
+
+    <footer class="futtor">
+        <h3 class="futtor-headline">© 2025 BOOKS_GARDEN. All rights reserved.</h3>
+        <ul class="futtor-links">
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="./Catalog.html">Catalog</a></li>
+            <li><a href="./About.html">About</a></li>
+            <li><a href="./Contact.html">Contact</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

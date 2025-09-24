@@ -1,0 +1,73 @@
+/* pr #216163
+sy=#2B7583
+ty=#b5f3 ee
+fth=#efffff
+*/
+/* #CDD5AR #E9EDCA #FEF9E1 #FAEDCD #D3A373 */
+.navbar {
+  background-color: #112250;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.navbar2 {
+   background-color: #112250;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.logo {
+  color: #E0C58F;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links2 {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+.nav-links2 li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+   flex-direction: row;
+  align-items: center;
+}
+
+.nav-links li a:hover {
+  color: #E0C58F;
+}
+
+.nav-links2 li a:hover {
+   color: #E0C58F;
+}
+
+.nav-links li a.active {
+  color: #E0C58F;
+  font-weight: bold;
+  border: #E0C58F 1px solid;
+  padding: 3px;
+}
+.nav-links2 li a.active {
+  color: #E0C58F;
+  font-weight: bold;
+  border: #E0C58F 1px solid;
+  padding: 3px;
+}
+
