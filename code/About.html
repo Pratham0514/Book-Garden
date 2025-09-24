@@ -7,7 +7,59 @@
       <link rel="stylesheet" href="./../css/About.css">
      <link rel="stylesheet" href="./../css/navbar.css">
     <link rel="stylesheet" href="./../css/futtor.css">
+    <style>
+      .labinfo{
+        margin: 20px;
+        padding: 20px;
+        background-color: #f4e4c4;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+      }
+      .headline{
+        color: #3C507B;
+        font-size: 22px;
+      }
+      .header{
+        text-align: center;
+        color: #3C507B;
+        font-size: 28px;
+        margin-top: 20px;
+      }
+      .content{
+        font-size: 18px;
+        line-height: 1.6;
+        color: #333;
+      }
+      
+        #reviews-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+        .card {
+            border: 1px solid #ccc;
+            padding: 16px;
+            margin: 0;
+            border-radius: 8px;
+            box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
+            background-color: #f9f9f9;
+            max-width: 320px;
+            width: 100%;
+            box-sizing: border-box;
+            flex: 1 1 300px;
+        }
+        .rating {
+            color: #f5b301;
+            font-weight: bold;
+        }
+        .review-name {
+            font-weight: bold;
+        }
+    
+    </style>
 </head>
+
 <body class="body">
      <div>
     <nav class="navbar">
@@ -21,18 +73,94 @@
     </nav>
   </div>
 
-<P>
- <li>lab info</li>
-  <li>facality</li>
-  <li>staf info</li>
-  <li>card of review</li>
-</P>
+<div class="labinfo">
+  <h2 class="header">Laboratory Information</h2>
+  <p class="content">Welcome to Book Garden Library, a place where knowledge blossoms like a garden in full bloom. Our library is more than just a collection of books—it is a hub for learning, creativity, and community engagement</p>
+  <ul>
+    <li><b>Name:</b> – Book Garden Library</li>
+    <li><b>Established:</b> – 2015</li>
+    <li><b>Timing:</b> – 9:00 AM – 6:00 PM</li>
+    <li><b>Location:</b> – First Floor, Book Garden Complex, Main Street, Nashik.</li>
+  </ul>
+  <b class="headline">Description:</b><br>
+  <p class="content">
+Book Garden Library & Learning Lab is a modern space designed for readers, students, and researchers. Our library houses thousands of books across genres, including fiction, non-fiction, academic resources, and rare collections. The lab provides a quiet reading area, computer access, digital resources, and interactive learning sessions.
+  </p>
 
+  <p>
+  <b class="headline">Facilities</b>
+  <ul>
+    <li><b>Free Wi-Fi & Internet Access</b> – Stay connected while reading or researching online.</li>
 
+    <li><b>Digital Library & E-Books</b> – Access thousands of digital books and journals anytime.</li>
 
+    <li><b>Quiet Study Zones</b> – Dedicated areas for focused reading and self-study.</li>
+    <li><b>Group Study Rooms</b> – Bookable rooms for collaborative learning and discussions.</li>
+    <li><b>Computer & Printing Facilities</b> – Computers for research and printing services.</li>
+    <li><b>Reading Corners & Comfortable Seating</b> – Cozy spaces designed for long reading sessions.</li>
+    <li><b>Workshops & Events</b> – Regular literary workshops, book readings, and educational events.</li>
+    <li><b>Book Lending & Reference Services</b> – Borrow books or use reference materials on-site.</li>
+    <li><b>Children’s Section</b> – Special area with books, storytelling sessions, and activities for kids.</li> 
+    <li><b>Multimedia Resources</b> – Access to audio books, documentaries, and educational videos.</li>
+    <li><b>Assistance & Guidance</b> – Friendly staff to help you find resources and research material.</li>
+</ul>
+  </p>
+  <hr>
 
+<h1 style="text-align: center; color:#3C507B;">Reviews Page</h1>
+    <div id="reviews-container"></div>
+    <script>
+        const defaultReviews = [
+            {
+                name: "Priya S",
+                rating: 5,
+                comment: "“Absolutely loved this book! The story was engaging and inspiring from start to finish.",
+          
+            },
+            {
+                name: "Michael Smith",
+                rating: 4,
+                comment: "Great product overall. Shipping was fast, and quality met my expectations.",
+        
+            },
+            {
+                name: "Samantha Lee",
+                rating: 5,
+                comment: "The book was okay. Some chapters felt slow, but the main message was clear.",
 
+            },
+            {
+                name: "David Johnson",
+                rating: 3,
+                comment: "“Good product! A few minor issues, but overall very satisfied with my purchase.",
+          
+            },
+            {
+                name: "Emily Davis",
+                rating: 4,
+                comment: "“Highly recommend! The writing style is smooth, and the ideas are easy to apply.",
+          
+            }
+        ];
 
+        function renderReviews(reviews) {
+            const container = document.getElementById('reviews-container');
+            container.innerHTML = '';
+            reviews.forEach(review => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <div class="review-name">${review.name}</div>
+                    <div class="rating">Rating: ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
+                    <div class="review-comment">${review.comment}</div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        renderReviews(defaultReviews);
+    </script>
+</div>
   <div class="futtor">
   <h3 class="futtor-headline">© 2025 BOOKS_GARDEN. All rights reserved.</h3>
   <ul class="futtor-links">
