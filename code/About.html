@@ -7,6 +7,7 @@
       <link rel="stylesheet" href="./../css/About.css">
      <link rel="stylesheet" href="./../css/navbar.css">
     <link rel="stylesheet" href="./../css/futtor.css">
+     
     <style>
       .labinfo{
         margin: 20px;
@@ -30,33 +31,6 @@
         line-height: 1.6;
         color: #333;
       }
-      
-        #reviews-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            justify-content: center;
-        }
-        .card {
-            border: 1px solid #ccc;
-            padding: 16px;
-            margin: 0;
-            border-radius: 8px;
-            box-shadow: 2px 2px 12px rgba(0,0,0,0.1);
-            background-color: #f9f9f9;
-            max-width: 320px;
-            width: 100%;
-            box-sizing: border-box;
-            flex: 1 1 300px;
-        }
-        .rating {
-            color: #f5b301;
-            font-weight: bold;
-        }
-        .review-name {
-            font-weight: bold;
-        }
-    
     </style>
 </head>
 
@@ -105,61 +79,6 @@ Book Garden Library & Learning Lab is a modern space designed for readers, stude
     <li><b>Assistance & Guidance</b> – Friendly staff to help you find resources and research material.</li>
 </ul>
   </p>
-  <hr>
-
-<h1 style="text-align: center; color:#3C507B;">Reviews Page</h1>
-    <div id="reviews-container"></div>
-    <script>
-        const defaultReviews = [
-            {
-                name: "Priya S",
-                rating: 5,
-                comment: "“Absolutely loved this book! The story was engaging and inspiring from start to finish.",
-          
-            },
-            {
-                name: "Michael Smith",
-                rating: 4,
-                comment: "Great product overall. Shipping was fast, and quality met my expectations.",
-        
-            },
-            {
-                name: "Samantha Lee",
-                rating: 5,
-                comment: "The book was okay. Some chapters felt slow, but the main message was clear.",
-
-            },
-            {
-                name: "David Johnson",
-                rating: 3,
-                comment: "“Good product! A few minor issues, but overall very satisfied with my purchase.",
-          
-            },
-            {
-                name: "Emily Davis",
-                rating: 4,
-                comment: "“Highly recommend! The writing style is smooth, and the ideas are easy to apply.",
-          
-            }
-        ];
-
-        function renderReviews(reviews) {
-            const container = document.getElementById('reviews-container');
-            container.innerHTML = '';
-            reviews.forEach(review => {
-                const card = document.createElement('div');
-                card.className = 'card';
-                card.innerHTML = `
-                    <div class="review-name">${review.name}</div>
-                    <div class="rating">Rating: ${'★'.repeat(review.rating)}${'☆'.repeat(5 - review.rating)}</div>
-                    <div class="review-comment">${review.comment}</div>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        renderReviews(defaultReviews);
-    </script>
 </div>
   <div class="futtor">
   <h3 class="futtor-headline">© 2025 BOOKS_GARDEN. All rights reserved.</h3>

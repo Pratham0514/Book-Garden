@@ -7,8 +7,10 @@
       <link rel="stylesheet" href="./../css/Contact.css">
          <link rel="stylesheet" href="./../css/navbar.css">
   <link rel="stylesheet" href="./../css/futtor.css">
+  <link rel="stylesheet" href="./../css/Contact.css">
+ 
 </head>
-<body class="body">
+<body class="body ">
      <div>
     <nav class="navbar">
       <div class="logo">📚 BOOKS_GARDEN 📚</div>
@@ -20,12 +22,146 @@
       </ul>
     </nav>
   </div>
-   
-<li>form feedback</li>
-<li>book order requed </li>
-<li>card of lab    <li>conatct</li><li>email</li><li>loction</li>
-</li>
 
+
+<div class="flex-row">
+    <!-- Feedback Form with image on right -->
+    <div class="FeedbackContainer">
+      <h2 class="headline">Feedback <i class="fa-regular fa-face-smile fa-beat" style="color: #3c507b;"></i></h2>
+      <div class="feedback-flex">
+        <form id="addReviewForm" style="flex: 1;">
+          <div class="subheadline">
+            <label for="reviewName" class="form-label">Your Name</label>
+            <input type="text" class="form-control" id="reviewName" required>
+          </div>
+          <div class="subheadline">
+            <label for="reviewText" class="form-label">Your Review</label>
+            <textarea class="form-control" id="reviewText" rows="3" maxlength="150" required></textarea>
+            <small id="charCount" class="form-text text-muted">0 / 150 characters</small>
+          </div>
+          <div class="subheadline">
+            <label class="form-label">Star Rating</label>
+            <div class="star-rating">
+              <input type="radio" id="star5" name="rating" value="5"><label for="star5">&#9733;</label>
+              <input type="radio" id="star4" name="rating" value="4"><label for="star4">&#9733;</label>
+              <input type="radio" id="star3" name="rating" value="3"><label for="star3">&#9733;</label>
+              <input type="radio" id="star2" name="rating" value="2"><label for="star2">&#9733;</label>
+              <input type="radio" id="star1" name="rating" value="1" checked><label for="star1">&#9733;</label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Review</button>
+        </form>
+       
+       
+      </div>
+    </div>
+    <!-- Book Order Form -->
+    <div class="orderContainer">  
+      <h2 class="headline">Book you Want 📚</h2>
+      <form>
+        <div class="mb-3">
+          <label for="orderName" class="form-label">Full Name</label>
+          <input type="text" class="form-control" id="orderName" required>
+        </div>
+        <div class="mb-3">
+          <label for="Bname" class="form-label">Book Name</label>
+          <input type="text" class="form-control" id="Bname" required>
+        </div>
+        <div class="mb-3">
+          <label for="orderAuthor" class="form-label">Author Name</label>
+          <input type="text" class="form-control" id="orderAuthor" required>
+        </div>
+        <div class="mb-3">
+          <label for="orderQuantity" class="form-label">Quantity</label>
+          <input type="number" class="form-control" id="orderQuantity" min="1" value="1" required>
+        </div>
+        <button type="submit" class="btn btn-success">Order Now</button>
+      </form>
+    </div>
+  </div>
+  <!-- Review Cards Section Below Both Forms, in a Row -->
+  <div id="reviewCardsWrapper">
+    <h3 class="mt-4 mb-3 text-center">Reviews</h3>
+    <div id="reviewCards">
+      <div class="card mb-2 review-card">
+        <div class="card-body">
+          <h5 class="card-title">John Doe</h5>
+          <div class="mb-1">
+            <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          </div>
+          <p class="card-text">Great book! Very informative.</p>
+        </div>
+      </div>
+      <div class="card mb-2 review-card">
+        <div class="card-body">
+          <h5 class="card-title">Jane Smith</h5>
+          <div class="mb-1">
+            <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+          <p class="card-text">Loved the reading experience</p>
+        </div>
+      </div>
+      <!-- New reviews will be added here -->
+    </div>
+  </div>
+
+
+ <script>
+  // Character count for review description
+  const reviewText = document.getElementById('reviewText');
+  const charCount = document.getElementById('charCount');
+  reviewText.addEventListener('input', function() {
+    charCount.textContent = `${reviewText.value.length} / 150 characters`;
+  });
+
+  document.getElementById('addReviewForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('reviewName').value;
+    let text = reviewText.value;
+    const rating = document.querySelector('input[name="rating"]:checked').value;
+
+    // Limit review description to 150 characters (extra safety)
+    if (text.length > 150) {
+      text = text.substring(0, 150) + '...';
+    }
+
+    let stars = '';
+    for (let i = 1; i <= 5; i++) {
+      stars += i <= rating ? '<span class="text-warning">&#9733;</span>' : '<span class="text-warning">&#9734;</span>';
+    }
+
+    const card = document.createElement('div');
+    card.className = 'card mb-2 review-card';
+    card.innerHTML = `
+      <div class="card-body">
+        <h5 class="card-title">${name}</h5>
+        <div class="mb-1">${stars}</div>
+        <p class="card-text">${text}</p>
+      </div>
+    `;
+    document.getElementById('reviewCards').appendChild(card);
+
+    this.reset();
+    document.getElementById('star1').checked = true;
+    charCount.textContent = '0 / 150 characters';
+  });
+</script>
+<script src="https://kit.fontawesome.com/29829fba35.js" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
   <div class="futtor">
   <h3 class="futtor-headline">© 2025 BOOKS_GARDEN. All rights reserved.</h3>
