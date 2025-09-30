@@ -57,34 +57,7 @@
   </ul>
 </div>
 
-
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get("name");
-    document.getElementById("welcomeText").innerText = "Welcome " + name;
-    document.getElementById("welcome-msg").innerHTML = "Start Your reading journey today&nbsp" + name;
-  </script>
-
-  <script>
-    const imgarray = [
-      "./../img/img1 (1).jpg",
-      "./../img/img2.jpg",
-      "./../img/img3.jpg",
-      "./../img/img4.jpg"
-    ];
-    let imgindex = 0;
-    const imgmove = document.getElementById("img");
-
-    function back() {
-      imgindex = (imgindex === 0) ? imgarray.length - 1 : imgindex - 1;
-      imgmove.src = imgarray[imgindex];
-    }
-
-    function next() {
-      imgindex = (imgindex === imgarray.length - 1) ? 0 : imgindex + 1;
-      imgmove.src = imgarray[imgindex];
-    }
-  </script>
+  <script src="./../js/Home.js"></script>
 
   <script src="https://kit.fontawesome.com/29829fba35.js" crossorigin="anonymous"></script>
 </body>

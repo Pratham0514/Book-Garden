@@ -1,0 +1,100 @@
+        const defaultBooks = [
+            {
+                name: "Atomic Habits",
+                category: "Self-help",
+                price: 350,
+                image: "https://m.media-amazon.com/images/I/61M6KzUbf7L._UF1000,1000_QL80_.jpg",
+                description: "Tiny changes, remarkable results.",
+                author: "James Clear"
+            },
+            {
+                name: "The Alchemist",
+                category: "Fiction",
+                price: 400,
+                image: "https://bookmarkandworld.com/cdn/shop/files/WhatsAppImage2024-10-06at4.15.37PM_1.jpg?v=1728211642",
+                description: "A journey of self-discovery, dreams, destiny, journey.",
+                author: "Paulo Coelho"
+            },
+            {
+                name: "Practicing Mind",
+                category: "Self-help",
+                price: 299,
+                image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-_3llJU43-3wJylKhsszvMzXsG1UugftG6Q&s",
+                description: "A book about mindfulness and focus.",
+                author: "Emily Davis"
+            },
+        ];
+
+        function getBooks() {
+            try {
+                const stored = localStorage.getItem("productCards");
+                if (stored) {
+                    const parsed = JSON.parse(stored);
+                    if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+                }
+            } catch {}
+            localStorage.setItem("productCards", JSON.stringify(defaultBooks));
+            return [...defaultBooks];
+        }
+
+        let books = getBooks();
+
+        function saveBooks() {
+            localStorage.setItem("productCards", JSON.stringify(books));
+        }
+
+        function renderBooks() {
+            const container = document.getElementById("main-container");
+            if (!books.length) {
+                container.innerHTML = `<p style="margin:32px;color:#3C507B;">No books in catalog.</p>`;
+                return;
+            }
+            container.innerHTML = books.map((book, idx) => `
+                <div class="card" tabindex="0" aria-label="Book card: ${book.name}">
+                    <h2>${book.name}</h2>
+                    <p>Category: ${book.category}</p>
+                    <p>Price: ₹${book.price}</p>
+                    <img src="${book.image}" alt="${book.name}">
+                    <p>Description: ${book.description}</p>
+                    <p>Author: ${book.author}</p>
+                    <button class="delete-btn" type="button" onclick="deleteBook(${idx})" aria-label="Delete ${book.name}">Delete</button>
+                    <button class="buy-btn" type="button" onclick="buyBook('${book.name}')" aria-label="Buy ${book.name}">Buy</button>
+                </div>
+            `).join("");
+        }
+
+        window.deleteBook = function(index) {
+            books.splice(index, 1);
+            saveBooks();
+            renderBooks();
+        };
+
+        window.buyBook = function(bookName) {
+            alert(`Thank you for buying "${bookName}"!`);
+        };
+
+        document.getElementById("add-card-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const name = document.getElementById("name").value.trim();
+            const category = document.getElementById("category").value.trim();
+            const price = document.getElementById("price").value;
+            const image = document.getElementById("image").value.trim();
+            const description = document.getElementById("description").value.trim();
+            const author = document.getElementById("author").value.trim();
+
+            if (!name || !category || !price || !image || !description || !author) return;
+
+            books.push({
+                name,
+                category,
+                price: parseFloat(price),
+                image,
+                description,
+                author
+            });
+            saveBooks();
+            renderBooks();
+            e.target.reset();
+        });
+
+        renderBooks();

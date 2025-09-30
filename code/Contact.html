@@ -8,7 +8,8 @@
          <link rel="stylesheet" href="./../css/navbar.css">
   <link rel="stylesheet" href="./../css/futtor.css">
   <link rel="stylesheet" href="./../css/Contact.css">
- 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
 </head>
 <body class="body ">
      <div>
@@ -25,7 +26,7 @@
 
 
 <div class="flex-row">
-    <!-- Feedback Form with image on right -->
+    <!-- Feedback Form  -->
     <div class="FeedbackContainer">
       <h2 class="headline">Feedback <i class="fa-regular fa-face-smile fa-beat" style="color: #3c507b;"></i></h2>
       <div class="feedback-flex">
@@ -49,9 +50,11 @@
               <input type="radio" id="star1" name="rating" value="1" checked><label for="star1">&#9733;</label>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary">Add Review</button>
+          <button type="submit" class="btn btn-primary" onclick="addReview()">Add Review</button>
         </form>
-       
+    <img src="./../img/Feedback.png" alt="Feedback Image" style="max-width: 40%; height: auto;">
+          
+    
        
       </div>
     </div>
@@ -74,12 +77,14 @@
         <div class="mb-3">
           <label for="orderQuantity" class="form-label">Quantity</label>
           <input type="number" class="form-control" id="orderQuantity" min="1" value="1" required>
+        
         </div>
-        <button type="submit" class="btn btn-success">Order Now</button>
+        <button type="submit" class="btn btn-success" onclick="orderBook()">Order Now</button>
       </form>
+    
     </div>
   </div>
-  <!-- Review Cards Section Below Both Forms, in a Row -->
+  <!-- Review Cards -->
   <div id="reviewCardsWrapper">
     <h3 class="mt-4 mb-3 text-center">Reviews</h3>
     <div id="reviewCards">
@@ -100,69 +105,49 @@
           </div>
           <p class="card-text">Loved the reading experience</p>
         </div>
+      </div> 
+      <div class="card mb-2 review-card">
+        <div class="card-body">
+          <h5 class="card-title">Riya Sharma</h5>
+          <div class="mb-1">
+            <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+          <p class="card-text">His book was absolutely amazing</p>
+        </div>
       </div>
-      <!-- New reviews will be added here -->
+      <div class="card mb-2 review-card">
+        <div class="card-body">
+          <h5 class="card-title">Sam Phan</h5>
+          <div class="mb-1">
+            <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+          <p class="card-text">The design is clean, user-friendly, and makes browsing a joy.</p>
+        </div>
+      </div>
+      <div class="card mb-2 review-card">
+        <div class="card-body">
+          <h5 class="card-title">Diego Reeves</h5>
+          <div class="mb-1">
+            <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+          <p class="card-text">The website is visually appealing and makes reading about books fun</p>
+        </div>
+      </div>
+      <div class="card mb-2 review-card">
+        <div class="card-body">
+          <h5 class="card-title">Lana Singh</h5>
+          <div class="mb-1">
+            <span class="text-warning">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+          </div>
+          <p class="card-text">Loved the reading experience</p>
+        </div>
+      </div>
+    
     </div>
   </div>
-
-
- <script>
-  // Character count for review description
-  const reviewText = document.getElementById('reviewText');
-  const charCount = document.getElementById('charCount');
-  reviewText.addEventListener('input', function() {
-    charCount.textContent = `${reviewText.value.length} / 150 characters`;
-  });
-
-  document.getElementById('addReviewForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('reviewName').value;
-    let text = reviewText.value;
-    const rating = document.querySelector('input[name="rating"]:checked').value;
-
-    // Limit review description to 150 characters (extra safety)
-    if (text.length > 150) {
-      text = text.substring(0, 150) + '...';
-    }
-
-    let stars = '';
-    for (let i = 1; i <= 5; i++) {
-      stars += i <= rating ? '<span class="text-warning">&#9733;</span>' : '<span class="text-warning">&#9734;</span>';
-    }
-
-    const card = document.createElement('div');
-    card.className = 'card mb-2 review-card';
-    card.innerHTML = `
-      <div class="card-body">
-        <h5 class="card-title">${name}</h5>
-        <div class="mb-1">${stars}</div>
-        <p class="card-text">${text}</p>
-      </div>
-    `;
-    document.getElementById('reviewCards').appendChild(card);
-
-    this.reset();
-    document.getElementById('star1').checked = true;
-    charCount.textContent = '0 / 150 characters';
-  });
-</script>
+ <script src="./../js/Contact.js"></script>
 <script src="https://kit.fontawesome.com/29829fba35.js" crossorigin="anonymous"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <div class="futtor">
   <h3 class="futtor-headline">© 2025 BOOKS_GARDEN. All rights reserved.</h3>
   <ul class="futtor-links">
