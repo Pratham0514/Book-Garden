@@ -1,7 +1,7 @@
 # Book-Garden
 
 #### “Where Every Book Opens a New World.”
-![Link](https://book-park.netlify.app/)
+gti 
 
 <p>Welcome to Book Library, your one-stop destination for exploring and buying books with ease.
 Our project is designed to help readers find and purchase books quickly without any hassle.<p>
