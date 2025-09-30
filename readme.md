@@ -1,34 +1,19 @@
-1. ## window.location.href    
-                            .This is used to change or get the current page URL.
-                            .                                                       synatx= window.location.href = "somepage.html";
-                            .navigates the browser to that page — like clicking a link.
+# Book-Garden
 
-2. ## encodeURIComponent(name) 
-                            .This ensures the name is safe for URLs.
-                            .If you don’t encode it, spaces or special characters can break the URL
-                                                                             eg=window.location.href = "code/home.html?name=Prathamesh%20Roundale";
- 
-3. ## window.location.search   
-                            .This gives you everything after the ? in the URL.
-                                                                            Example:If the URL is:
-                                                                                    home.html?name=Prathamesh
+#### “Where Every Book Opens a New World.”
+![Link](https://book-park.netlify.app/)
 
-4. ## URLSearchParams(...)     
-                            .It's a built-in JavaScript object that helps you work with URL query parameters easily.
-                            .It turns the search string into an object you can query.
-                                                                                 eg= const params = new URLSearchParams(window.location.search);
-                                                                                     const name = params.get("name");
+<p>Welcome to Book Library, your one-stop destination for exploring and buying books with ease.
+Our project is designed to help readers find and purchase books quickly without any hassle.<p>
 
-    # ( use in index page and  home page )
+### Why Choose Us?
+1.**Easy to Search** – Find the right book as per your requirement.
+2.**Simple Buying Process**-Just a few clicks and your book is yours.
+3.**Reader-Friendly Experience**-Smooth, fast, and convenient.
 
-/```
-    function submitSignup() {
-       var name = document.getElementById("fullname").value;                                        <- index
-      window.location.href = "code/home.html?name=" + encodeURIComponent(name);
-      return false; 
-    } ```/
+<p>
+At Book Library, we believe books are more than just paper and ink – they are gateways to knowledge, imagination, and growth. Our mission is to make books easily accessible to everyone, anytime
+</p>    
 
-/```  const params = new URLSearchParams(window.location.search);
-    const name = params.get("name");                                                                  <- home
-    document.getElementById("welcomeText").innerText = "Welcome " + name;
-    ```/
+![UI](img/ui.1.png)
+![UI](img/home_page.png)
