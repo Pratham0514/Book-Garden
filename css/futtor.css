@@ -1,65 +1,49 @@
- .futtor {
+.futtor{
   background-color: #112250;
-  color: white;
-  padding: 15px 0;
-  position: relative;
-  width: 100%;
-  font-size: 14px;
-  margin-top: 30px;
-}
-
-.futtor-headline {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.futtor-links {
-  list-style: none;       
   display: flex;
-  flex-direction: column;  
+  justify-content: space-around;
   align-items: center;
-  gap: 8px;
-  padding: 0;
-  margin: 0;
+  padding: 10px;
+  color: white;
+  font-size: 20px;
+  margin-top: 10px;
+  
+}
+.futtor-content{
+  display: block;
+  width: 300px;
+  background: #112250;
+}
+.futtor-contents{
+  display: block;
+  width: 300px;
+
 }
 
-.futtor-links li a {
+.futtor-links{
+  list-style: none;
+  padding: 10px;
+  text-align: left;
+  text-decoration: none;
+}
+
+.futtor-links li{
+  margin: 10px 0;
+  gap: 10px;
+  text-align: center;
+}
+
+.futtor-links li a{
+  margin: 10px 0;
+  gap: 10px;
+  text-align: center;
   color: white;
   text-decoration: none;
-  font-weight: 500;
 }
-
-.futtor-links li a:hover {
-  color: #E0C58F;
+.futtor-links li a:hover{
+    color: #E0C58F;
 }
-.futtor {
-  background-color: #112250;
-  color: white;
-  padding: 15px 0;
-  position: relative;
-  width: 100%;
-  font-size: 14px;
-  margin-top: 30px;
-}
-
-.futtor-headline {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-.futtor-links {
-  list-style: none;        
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding: 0;
-  margin: 0;
-}
-
-.futtor-links li a {
-  color: white;
+.contant{
+    color: #E0C58F;
   text-decoration: none;
-  font-weight: 500;
 }
-
